@@ -1,17 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <Extern href="stdidcmd.h"/>
-  <Extern href="vsshlids.h"/>
-  <Include href="KnownImageIds.vsct"/>
-  <Include href="VSGlobals.vsct"/>
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+	<Include href="KnownImageIds.vsct"/>
+	<Include href="VSGlobals.vsct"/>
 
-  <Commands package="GraphvizVS">
-  </Commands>
+	<Commands package="GraphvizVS">
+		<Groups>
+			<Group guid="GraphvizVS" id="GraphvizMenuGroup" priority="0x0600">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_STANDARD"/>
+			</Group>
+		</Groups>
+			
+		<Buttons>
+			<!-- Export Graph Button - Toolbar -->
+			<Button guid="GraphvizVS" id="ExportGraphCommand" priority="0x0100" type="Button">
+				<Parent guid="GraphvizVS" id="GraphvizMenuGroup"/>
+				<Icon guid="ImageCatalogGuid" id="NewGraph" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Export Graph</ButtonText>
+				</Strings>
+			</Button>
+			
+			<!-- Export Graph Button - Build Menu -->
+			<Button guid="GraphvizVS" id="ExportGraphCommand" priority="0x0100" type="Button">
+				<Parent guid="VSMainMenu" id="Build.MiscGroup"/>
+				<Icon guid="ImageCatalogGuid" id="NewGraph" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Export Graph</ButtonText>
+				</Strings>
+			</Button>
 
-  <Symbols>
-    <GuidSymbol name="GraphvizVS" value="{0dffcf6f-b73d-43bb-b692-eee5d95dc18e}">
-      
-    </GuidSymbol>
-  </Symbols>
+			<!-- Open Graph Preview Window Button -->
+			<Button guid="GraphvizVS" id="OpenGraphPreviewWindowCommand" priority="0x0100" type="Button">
+				<Parent guid="VSMainMenu" id="View.ExplorerWindowsGroup"/>
+				<Icon guid="ImageCatalogGuid" id="AddToDependancyGraphAncestor" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Graph Preview Window</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+	
+	<VisibilityConstraints>
+		<VisibilityItem guid="GraphvizVS" id="ExportGraphCommand" context="uiContextSupportedFiles"/>
+	</VisibilityConstraints>
+
+	<Symbols>
+		<GuidSymbol name="uiContextSupportedFiles" value="{0dffcf6f-b73d-43bb-b692-eee5d95dc18e}"/>
+		<GuidSymbol name="GraphvizVS" value="{0dffcf6f-b73d-43bb-b692-eee5d95dc18e}">
+			<IDSymbol name="GraphvizMenuGroup" value="0x1100"/>
+			<IDSymbol name="ExportGraphCommand" value="0x0100"/>
+			<IDSymbol name="OpenGraphPreviewWindowCommand" value="0x0200"/>
+		</GuidSymbol>
+	</Symbols>
 </CommandTable>
