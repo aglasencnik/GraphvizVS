@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-  <Metadata>
-    <Identity Id="GraphvizVS.7e008693-51b2-4c63-9a07-b7d03e14965e" Version="1.0" Language="en-US" Publisher="Amadej Glasenčnik" />
-    <DisplayName>GraphvizVS</DisplayName>
-    <Description>Empty VSIX Project.</Description>
-    <Icon>Resources\Icon.png</Icon>
-    <PreviewImage>Resources\Icon.png</PreviewImage>
-  </Metadata>
-  <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
-      <ProductArchitecture>amd64</ProductArchitecture>
-    </InstallationTarget>
-  </Installation>
-  <Prerequisites>
-    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
-  </Prerequisites>
-  <Assets>
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-  </Assets>
+    <Metadata>
+        <Identity Id="GraphvizVS.7e008693-51b2-4c63-9a07-b7d03e14965e" Version="0.1" Language="en-US" Publisher="Amadej Glasenčnik" />
+        <DisplayName>GraphvizVS</DisplayName>
+        <Description xml:space="preserve">Streamline your Graphviz graph creation in Visual Studio with GraphvizVS; instantly preview and export diagrams with added IntelliSense support for quicker editing.</Description>
+        <MoreInfo>https://github.com/aglasencnik/GraphvizVS</MoreInfo>
+        <License>Resources\LICENSE.txt</License>
+        <GettingStartedGuide>https://github.com/aglasencnik/GraphvizVS</GettingStartedGuide>
+        <ReleaseNotes>https://github.com/aglasencnik/GraphvizVS/releases</ReleaseNotes>
+        <Icon>Resources\Icon.png</Icon>
+        <PreviewImage>Resources\Icon.png</PreviewImage>
+        <Tags>graphviz, visual-studio, tools, graphs, vsix, dot-language</Tags>
+        <Preview>true</Preview>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
 </PackageManifest>
