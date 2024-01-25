@@ -1,0 +1,15 @@
+; Registering the package
+[$RootKey$\InstalledProducts\DOT_LanguagePackage]
+"Package"="{6c1dabb2-10d1-4efb-a381-e2afdab73aa9}"
+[$RootKey$\BindingPaths\{6c1dabb2-10d1-4efb-a381-e2afdab73aa9}]
+"$PackageFolder$"=""
+
+; Registering the TextMate grammar
+[$RootKey$\TextMate\Repositories]
+"DOT_Language"="$PackageFolder$\Syntaxes"
+
+[$RootKey$\ShellFileAssociations\.dot]
+"DefaultIconMoniker"="KnownMonikers.DependancyGraph"
+
+[$RootKey$\ShellFileAssociations\.DOT]
+"DefaultIconMoniker"="KnownMonikers.DependancyGraph"
