@@ -30,6 +30,7 @@ public sealed class GraphvizVSPackage : ToolkitPackage
     /// <returns>A task that represents the asynchronous operation.</returns>
     protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
     {
+        await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         await this.RegisterCommandsAsync();
         this.RegisterToolWindows();
     }

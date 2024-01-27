@@ -28,6 +28,15 @@ public class GeneralOptions : BaseOptionModel<GeneralOptions>
     public string CustomRuntimePath { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the additional flags.
+    /// </summary>
+    [Category("Runtime settings")]
+    [DisplayName("Additional flags")]
+    [Description("Insert any additional flags you want to use, such as -Gname, -Nname and more.")]
+    [DefaultValue("")]
+    public string AdditionalFlags { get; set; } = string.Empty;
+
+    /// <summary>
     /// Gets or sets the layout engine setting.
     /// </summary>
     [Category("Layout Engine Settings")]
@@ -45,4 +54,14 @@ public class GeneralOptions : BaseOptionModel<GeneralOptions>
     [Description("Insert the custom layout engine path (path of the .exe file).")]
     [DefaultValue("")]
     public string CustomLayoutEnginePath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the layout engine setting.
+    /// </summary>
+    [Category("Export Settings")]
+    [DisplayName("Export Output Format")]
+    [Description("Select the export output file format.")]
+    [DefaultValue(OutputFormat.SVG)]
+    [TypeConverter(typeof(EnumConverter))]
+    public OutputFormat ExportOutputFormat { get; set; } = OutputFormat.SVG;
 }

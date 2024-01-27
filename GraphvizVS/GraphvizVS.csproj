@@ -20,7 +20,7 @@
     <UseCodebase>true</UseCodebase>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
-    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
     <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
     <StartAction>Program</StartAction>
@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\TypeCharCommandHandler.cs" />
     <Compile Include="Commands\ExportGraphCommand.cs" />
     <Compile Include="Commands\OpenGraphPreviewWindowCommand.cs" />
     <Compile Include="Enums\LayoutEngine.cs" />
+    <Compile Include="Enums\OutputFormat.cs" />
     <Compile Include="Enums\RuntimeType.cs" />
+    <Compile Include="Helpers\CommandLineHelper.cs" />
+    <Compile Include="Helpers\DocumentHelper.cs" />
+    <Compile Include="Helpers\OutputFormatHelper.cs" />
+    <Compile Include="Models\OutputFormatModel.cs" />
     <Compile Include="Options\GeneralOptions.cs" />
     <Compile Include="Options\OptionsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -658,9 +664,7 @@
     <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.430" ExcludeAssets="Runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.5232" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="ToolWindows\GraphPreviewWindowControl.xaml">
       <SubType>Designer</SubType>
