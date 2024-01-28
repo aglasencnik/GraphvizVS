@@ -23,16 +23,23 @@ internal sealed class TypeCharCommandHandler : ICommandHandler<TypeCharCommandAr
     public string DisplayName => Vsix.Name;
 
     /// <summary>
+    /// Determines whether command handler is enabled.
+    /// </summary>
+    /// <param name="args">TypeCharCommandArgs object.</param>
+    /// <returns>CommandState object.</returns>
+    public CommandState GetCommandState(TypeCharCommandArgs args) => CommandState.Available;
+
+    /// <summary>
     /// Executes command handler.
     /// </summary>
-    /// <param name="args">TypeCharCommandArgs object</param>
-    /// <param name="executionContext">CommandExecutionContext object</param>
+    /// <param name="args">TypeCharCommandArgs object.</param>
+    /// <param name="executionContext">CommandExecutionContext object.</param>
     /// <returns>Whether key was overriden successfully.</returns>
     public bool ExecuteCommand(TypeCharCommandArgs args, CommandExecutionContext executionContext)
     {
         var typedChar = args.TypedChar;
         var fileExtension = Path.GetExtension(args.SubjectBuffer.GetFileName() ?? "");
-        if (!string.IsNullOrWhiteSpace(fileExtension) && (fileExtension == ".dot" || fileExtension == ".DOT") && (typedChar == '/' || typedChar == '-'))
+        if (!string.IsNullOrWhiteSpace(fileExtension) && fileExtension.ToLower() == ".dot" && (typedChar == '/' || typedChar == '-'))
         {
             args.TextView.TextBuffer.Insert(args.TextView.Caret.Position.BufferPosition, typedChar == '/' ? "//" : "->");
             return true;
@@ -40,11 +47,4 @@ internal sealed class TypeCharCommandHandler : ICommandHandler<TypeCharCommandAr
 
         return false;
     }
-
-    /// <summary>
-    /// Determines whether command handler is enabled.
-    /// </summary>
-    /// <param name="args">TypeCharCommandArgs object</param>
-    /// <returns>CommandState object</returns>
-    public CommandState GetCommandState(TypeCharCommandArgs args) => CommandState.Available;
 }
