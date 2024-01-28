@@ -18,8 +18,9 @@ namespace GraphvizVS;
 [Guid(PackageGuids.GraphvizVSString)]
 [ProvideOptionPage(typeof(OptionsProvider.GeneralOptionsProvider), "GraphvizVS", "General", 0, 0, true)]
 [ProvideProfile(typeof(OptionsProvider.GeneralOptionsProvider), "GraphvizVS", "General", 0, 0, true)]
-[ProvideToolWindow(typeof(GraphPreviewWindow.Pane))]
+[ProvideToolWindow(typeof(GraphPreviewWindow.Pane), Style = VsDockStyle.Linked, Window = WindowGuids.Toolbox)]
 [ProvideUIContextRule(PackageGuids.uiContextSupportedFilesString, name: "Supported Files", expression: "DOT", termNames: ["DOT", "DOT"], termValues: ["HierSingleSelectionName:.dot$", "HierSingleSelectionName:.DOT$"])]
+[ProvideService(typeof(GraphvizVSPackage), IsAsyncQueryable = true)]
 public sealed class GraphvizVSPackage : ToolkitPackage
 {
     /// <summary>
@@ -33,5 +34,6 @@ public sealed class GraphvizVSPackage : ToolkitPackage
         await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         await this.RegisterCommandsAsync();
         this.RegisterToolWindows();
+        AddService(typeof(GraphvizVSPackage), (_, _, _) => Task.FromResult<object>(this), promote: true);
     }
 }

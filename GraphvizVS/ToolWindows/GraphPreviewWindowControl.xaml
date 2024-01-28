@@ -8,10 +8,6 @@
              d:DesignWidth="300"
              Name="GraphPreview">
     <Grid>
-        <Button Content="Click me!"
-                    Click="button1_Click"
-                    Width="120"
-                    Height="80"
-                    Name="button1" />
+        <Image Name="PreviewImage" Stretch="Uniform" />
     </Grid>
 </UserControl>

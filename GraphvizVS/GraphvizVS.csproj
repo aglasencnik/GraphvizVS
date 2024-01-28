@@ -45,6 +45,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\SaveCommandHandler.cs" />
     <Compile Include="CommandHandlers\TypeCharCommandHandler.cs" />
     <Compile Include="Commands\ExportGraphCommand.cs" />
     <Compile Include="Commands\OpenGraphPreviewWindowCommand.cs" />
@@ -654,6 +655,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -663,6 +665,9 @@
     <PackageReference Include="Community.VisualStudio.VSCT" Version="16.0.29.6" PrivateAssets="all" />
     <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.430" ExcludeAssets="Runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.5232" />
+    <PackageReference Include="SharpVectors">
+      <Version>1.8.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
