@@ -17,6 +17,11 @@ Streamline your Graphviz graph creation in Visual Studio with GraphvizVS; instan
 3. Navigate to `Extensions` > `Manage Extensions`.
 4. Install the downloaded package.
 
+## Usage
+
+- To preview a graph, open the graph window from the View menu, and save the .dot document. The preview window will update with the refreshed graph.
+- To export a graph, click the export button and select the desired format and save location.
+
 ## Support the Project
 
 If you find this project useful, consider supporting it by [buying me a coffee](https://www.buymeacoffee.com/aglasencnik). Your support is greatly appreciated!
