@@ -4,6 +4,7 @@ using CliWrap;
 using GraphvizVS.Helpers;
 using GraphvizVS.Options;
 using Microsoft.VisualStudio.Imaging;
+using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Text;
 using Microsoft.Win32;
 
@@ -67,12 +68,12 @@ internal sealed class ExportGraphCommand : BaseCommand<ExportGraphCommand>
         }
         catch (Exception ex)
         {
-            var infoBar = await docView.TextView.CreateInfoBarAsync(
-                new InfoBarModel([new InfoBarTextSpan("Something went wrong while exporting graph!")], KnownMonikers.DiagramError)
+            await VS.MessageBox.ShowAsync(
+                "Something went wrong while loading the graph preview!",
+                "There is probably a syntax error in your .dot file.\nFix the errors and try again.",
+                OLEMSGICON.OLEMSGICON_CRITICAL,
+                OLEMSGBUTTON.OLEMSGBUTTON_OK
             );
-
-            if (infoBar != null) 
-                await infoBar.TryShowInfoBarUIAsync();
 
             await ex.LogAsync();
         }

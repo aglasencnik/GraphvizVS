@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.Imaging;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Controls;
 using Microsoft.VisualStudio.Shell.Interop;
 using CliWrap;
@@ -60,13 +59,12 @@ public partial class GraphPreviewWindowControl : UserControl
         }
         catch (Exception ex)
         {
-            var infoBar = await VS.InfoBar.CreateAsync(
-                ToolWindowGuids80.SolutionExplorer,
-                new InfoBarModel([new InfoBarTextSpan("Something went wrong while loading graph preview!")], KnownMonikers.DiagramError)
+            await VS.MessageBox.ShowAsync(
+                "Something went wrong while loading the graph preview!",
+                "There is probably a syntax error in your .dot file.\nFix the errors and try again.", 
+                OLEMSGICON.OLEMSGICON_CRITICAL, 
+                OLEMSGBUTTON.OLEMSGBUTTON_OK
             );
-
-            if (infoBar != null)
-                await infoBar.TryShowInfoBarUIAsync();
 
             await ex.LogAsync();
         }
