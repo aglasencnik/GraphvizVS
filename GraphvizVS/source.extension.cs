@@ -11,7 +11,7 @@ namespace GraphvizVS
         public const string Name = "GraphvizVS";
         public const string Description = @"Streamline your Graphviz graph creation in Visual Studio with GraphvizVS; instantly preview and export diagrams with added IntelliSense support for quicker editing.";
         public const string Language = "en-US";
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         public const string Author = "Amadej Glasenčnik";
         public const string Tags = "graphviz, visual-studio, tools, graphs, vsix, dot-language";
     }

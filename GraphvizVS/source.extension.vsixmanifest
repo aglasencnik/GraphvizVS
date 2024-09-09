@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="GraphvizVS.7e008693-51b2-4c63-9a07-b7d03e14965e" Version="1.0.0" Language="en-US" Publisher="Amadej Glasenčnik" />
+        <Identity Id="GraphvizVS.7e008693-51b2-4c63-9a07-b7d03e14965e" Version="1.1.0" Language="en-US" Publisher="Amadej Glasenčnik" />
         <DisplayName>GraphvizVS</DisplayName>
         <Description xml:space="preserve">Streamline your Graphviz graph creation in Visual Studio with GraphvizVS; instantly preview and export diagrams with added IntelliSense support for quicker editing.</Description>
         <MoreInfo>https://github.com/aglasencnik/GraphvizVS</MoreInfo>
